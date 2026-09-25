@@ -23,6 +23,7 @@ export const env = {
 
   aiProvider: (process.env.AI_PROVIDER ?? 'qwen') as 'qwen' | 'groq' | 'openai' | 'python' | 'mock',
   aiServiceUrl: process.env.AI_SERVICE_URL ?? 'http://127.0.0.1:8001',
+  aiServiceApiKey: process.env.AI_SERVICE_API_KEY ?? '',
   aiServiceTimeoutMs: Number(process.env.AI_SERVICE_TIMEOUT_MS ?? 50000),
   sttTimeoutMs: Number(process.env.STT_TIMEOUT_MS ?? 120000),
   ttsTimeoutMs: Number(process.env.TTS_TIMEOUT_MS ?? 12000),
@@ -36,6 +37,7 @@ export const env = {
   groqModel: process.env.GROQ_MODEL ?? 'qwen/qwen3.6-27b',
   conversationGroqModel: process.env.CONVERSATION_GROQ_MODEL ?? 'openai/gpt-oss-20b',
   groqSttModel: process.env.GROQ_STT_MODEL ?? 'whisper-large-v3-turbo',
+  groqSttAccurateModel: process.env.GROQ_STT_ACCURATE_MODEL ?? 'whisper-large-v3',
   groqSttLanguage: process.env.GROQ_STT_LANGUAGE ?? '',
   groqTtsModel: process.env.GROQ_TTS_MODEL ?? 'canopylabs/orpheus-v1-english',
   groqTtsVoice: process.env.GROQ_TTS_VOICE ?? 'diana',
