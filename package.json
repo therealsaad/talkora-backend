@@ -1,6 +1,7 @@
 {
   "name": "talkora-backend",
   "version": "1.0.0",
+  "packageManager": "pnpm@10.18.0",
   "description": "Talkora backend engine — auth, curriculum, progress, AI (Miss Julie) and voice service boundaries",
   "main": "dist/server.js",
   "scripts": {
