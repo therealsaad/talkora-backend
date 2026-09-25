@@ -87,7 +87,7 @@ export const VoiceService = {
       evaluation = evaluateOpenResponse(input.transcript)
     } else {
       const pronunciationProvider = getPronunciationProvider()
-      const result = await pronunciationProvider.evaluate({ word: expected, transcript: input.transcript })
+      const result = await pronunciationProvider.evaluate({ word: expected as string, transcript: input.transcript })
       evaluation = {
         score: result.score ?? 0,
         feedback: result.feedback,
@@ -156,7 +156,7 @@ export const VoiceService = {
     return session
   },
 
-  async synthesize(text: string) {
+  async synthesize(text: string, options: { purpose?: VoicePurpose } = {}) {
     const provider = getVoiceProvider()
     return provider.synthesize(text)
   },
@@ -189,7 +189,7 @@ export const VoiceService = {
     return getVoiceProvider()
   },
 
-  async transcribeAudio(input: { audioBase64: string; mimeType?: string; durationMs?: number }) {
+  async transcribeAudio(input: { audioBase64: string; mimeType?: string; durationMs?: number; mode?: 'fast' | 'accurate' }) {
     const provider = new GroqSpeechProvider()
     return provider.transcribe(input)
   },
